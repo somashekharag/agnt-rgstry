@@ -1,0 +1,314 @@
+AI Agent Nexus - Frontend Mock API Specification
+Purpose
+Backend development may not be completed during the early stages of the hackathon.
+To avoid blocking frontend development, all UI pages should consume a mock API layer that mirrors the final backend API contracts.
+When backend APIs become available, only the API implementation layer should change. React components should remain unchanged.
+________________________________________
+Mock API Architecture
+Frontend Components
+↓
+Mock API Layer
+↓
+Promise.resolve()
+↓
+Mock JSON Data
+Future
+Frontend Components
+↓
+Axios API Layer
+↓
+Spring Boot Backend APIs
+No UI changes required.
+________________________________________
+File Structure
+src
+api
+agentRegistryApi.js
+mocks
+mockApi.js
+data
+mockData.js
+________________________________________
+Dashboard APIs
+API
+GET /api/dashboard/overview
+Purpose
+Dashboard KPI cards
+Response
+{
+"totalAgents": 25,
+"activeAgents": 18,
+"dormantAgents": 7,
+"totalSkills": 75,
+"totalPrompts": 50,
+"totalExecutions": 5000,
+"uniqueUsers": 100
+}
+UI Components
+Total Agents
+Active Agents
+Dormant Agents
+Total Skills
+Total Prompts
+Executions
+Unique Users
+________________________________________
+Usage Analytics APIs
+API
+GET /api/dashboard/top-agents
+Purpose
+Top used agents chart
+Response
+[
+{
+"agentId":"AGT-001",
+"agentName":"API Test Generator",
+"executions":850
+},
+{
+"agentId":"AGT-002",
+"agentName":"Swagger Test Builder",
+"executions":720
+},
+{
+"agentId":"AGT-003",
+"agentName":"Splunk Analyzer",
+"executions":610
+},
+{
+"agentId":"AGT-004",
+"agentName":"Log Analyzer",
+"executions":540
+},
+{
+"agentId":"AGT-005",
+"agentName":"Jira Story Writer",
+"executions":430
+}
+]
+________________________________________
+API
+GET /api/dashboard/top-teams
+Purpose
+Top teams chart
+Response
+[
+{
+"team":"QA COE",
+"executions":1600
+},
+{
+"team":"Platform Engineering",
+"executions":1200
+},
+{
+"team":"Payments",
+"executions":900
+},
+{
+"team":"Retail Lending",
+"executions":700
+},
+{
+"team":"DevOps",
+"executions":600
+}
+]
+________________________________________
+Agent Catalog APIs
+API
+GET /api/agents
+Purpose
+Agent inventory page
+Response
+[
+{
+"agentId":"AGT-001",
+"agentName":"API Test Generator",
+"ownerTeam":"QA COE",
+"status":"ACTIVE",
+"version":"1.0.0"
+},
+{
+"agentId":"AGT-002",
+"agentName":"Swagger Test Builder",
+"ownerTeam":"Platform Engineering",
+"status":"ACTIVE",
+"version":"1.2.0"
+},
+{
+"agentId":"AGT-003",
+"agentName":"Splunk Analyzer",
+"ownerTeam":"DevOps",
+"status":"DORMANT",
+"version":"1.1.0"
+}
+]
+Recommendation
+Create at least 25 agents.
+Distribution
+18 ACTIVE
+7 DORMANT
+________________________________________
+Governance APIs
+API
+GET /api/governance/summary
+Purpose
+Governance KPI cards
+Response
+{
+"totalAgents":25,
+"goldAgents":10,
+"silverAgents":8,
+"bronzeAgents":4,
+"atRiskAgents":3
+}
+________________________________________
+API
+GET /api/governance/scores
+Purpose
+Governance table
+Response
+[
+{
+"agentId":"AGT-001",
+"agentName":"API Test Generator",
+"score":100,
+"rating":"GOLD"
+},
+{
+"agentId":"AGT-002",
+"agentName":"Swagger Test Builder",
+"score":80,
+"rating":"SILVER"
+},
+{
+"agentId":"AGT-003",
+"agentName":"Legacy Test Agent",
+"score":40,
+"rating":"AT_RISK"
+}
+]
+Distribution
+10 GOLD
+8 SILVER
+4 BRONZE
+3 AT_RISK
+________________________________________
+Duplicate Detection APIs
+API
+GET /api/duplicates
+Purpose
+Duplicate detection page
+Response
+[
+{
+"id":"1",
+"sourceAgentId":"AGT-001",
+"sourceAgentName":"API Test Generator",
+"candidateAgentId":"AGT-002",
+"candidateAgentName":"Swagger Test Builder",
+"similarityScore":82,
+"status":"POTENTIAL_DUPLICATE"
+},
+{
+"id":"2",
+"sourceAgentId":"AGT-003",
+"sourceAgentName":"Splunk Analyzer",
+"candidateAgentId":"AGT-004",
+"candidateAgentName":"Log Analyzer",
+"similarityScore":91,
+"status":"POTENTIAL_DUPLICATE"
+}
+]
+Recommendation
+Create 6 duplicate candidate pairs.
+________________________________________
+Notifications APIs
+API
+GET /api/notifications/digest
+Purpose
+Notifications dashboard
+Response
+{
+"newAgents":[
+"API Test Generator",
+"Swagger Test Builder"
+],
+"dormantAgents":[
+"Legacy Selenium Agent",
+"Old Splunk Agent"
+],
+"duplicateCandidates":[
+"API Test Generator ↔ Swagger Test Builder",
+"Splunk Analyzer ↔ Log Analyzer"
+],
+"topAgents":[
+"API Test Generator",
+"Swagger Test Builder",
+"Jira Story Writer"
+]
+}
+________________________________________
+Recommended Mock Dataset
+Total Agents: 25
+Active Agents: 18
+Dormant Agents: 7
+Skills: 75
+Prompts: 50
+Usage Events: 5000
+Users: 100
+Teams: 8
+Duplicate Candidates: 6
+Gold Agents: 10
+Silver Agents: 8
+Bronze Agents: 4
+At Risk Agents: 3
+________________________________________
+Recommended Teams
+QA COE
+Platform Engineering
+Payments
+Retail Lending
+DevOps
+Data Engineering
+Fraud Detection
+Customer Onboarding
+________________________________________
+Recommended Agents
+API Test Generator
+Swagger Test Builder
+Splunk Analyzer
+Log Analyzer
+Jira Story Writer
+Contract Test Generator
+Accessibility Checker
+Performance Test Builder
+Regression Test Assistant
+Test Data Generator
+________________________________________
+Mock API Implementation Pattern
+Example
+export const getOverview = async () => {
+return Promise.resolve(mockOverview);
+};
+export const getAgents = async () => {
+return Promise.resolve(mockAgents);
+};
+export const getGovernanceSummary = async () => {
+return Promise.resolve(mockGovernanceSummary);
+};
+________________________________________
+Migration to Backend APIs
+Current
+React Component
+↓
+mockApi.js
+Future
+React Component
+↓
+Axios
+↓
+Spring Boot API
+No React component changes required.
+

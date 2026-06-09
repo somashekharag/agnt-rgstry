@@ -1,0 +1,355 @@
+# AI Agent Nexus - Usage Analytics Dashboard Specification
+
+## Objective
+
+The Usage Analytics page should demonstrate the business value, adoption, governance maturity and reuse of AI agents across the enterprise.
+
+The page should be visually rich and leadership-focused.
+
+---
+
+## Priority 1 - Top Agents by Usage
+
+Business Question
+
+Which agents are delivering the most value?
+
+Chart Type
+
+Horizontal Bar Chart
+
+API
+
+GET /api/dashboard/top-agents
+
+Mock Data
+
+[
+{
+"agentName":"API Test Generator",
+"executions":850
+},
+{
+"agentName":"Swagger Test Builder",
+"executions":720
+},
+{
+"agentName":"Splunk Analyzer",
+"executions":610
+},
+{
+"agentName":"Log Analyzer",
+"executions":540
+},
+{
+"agentName":"Jira Story Writer",
+"executions":430
+}
+]
+
+---
+
+## Priority 2 - Adoption by Team
+
+Business Question
+
+Which teams are adopting AI agents most?
+
+Chart Type
+
+Horizontal Bar Chart
+
+API
+
+GET /api/dashboard/top-teams
+
+Mock Data
+
+[
+{
+"team":"QA COE",
+"executions":1600
+},
+{
+"team":"Platform Engineering",
+"executions":1200
+},
+{
+"team":"Payments",
+"executions":900
+},
+{
+"team":"Retail Lending",
+"executions":700
+},
+{
+"team":"DevOps",
+"executions":600
+}
+]
+
+---
+
+## Priority 3 - Usage Trend
+
+Business Question
+
+Is AI adoption increasing?
+
+Chart Type
+
+Line Chart
+
+API
+
+GET /api/dashboard/usage-trend
+
+Mock Data
+
+[
+{
+"month":"Jan",
+"executions":500
+},
+{
+"month":"Feb",
+"executions":700
+},
+{
+"month":"Mar",
+"executions":1100
+},
+{
+"month":"Apr",
+"executions":1800
+},
+{
+"month":"May",
+"executions":2500
+},
+{
+"month":"Jun",
+"executions":5000
+}
+]
+
+---
+
+## Priority 4 - Governance Distribution
+
+Business Question
+
+How healthy is our AI ecosystem?
+
+Chart Type
+
+Pie Chart
+
+API
+
+GET /api/governance/summary
+
+Mock Data
+
+[
+{
+"rating":"GOLD",
+"count":10
+},
+{
+"rating":"SILVER",
+"count":8
+},
+{
+"rating":"BRONZE",
+"count":4
+},
+{
+"rating":"AT_RISK",
+"count":3
+}
+]
+
+---
+
+## Priority 5 - Reuse vs New Creation
+
+Business Question
+
+Are teams reusing existing agents?
+
+Chart Type
+
+Pie Chart
+
+API
+
+GET /api/dashboard/reuse-summary
+
+Mock Data
+
+[
+{
+"category":"Reused Agents",
+"count":18
+},
+{
+"category":"New Agents",
+"count":7
+}
+]
+
+---
+
+## Priority 6 - Agent Status Distribution
+
+Business Question
+
+How many agents are active versus dormant?
+
+Chart Type
+
+Pie Chart
+
+API
+
+GET /api/dashboard/agent-status
+
+Mock Data
+
+[
+{
+"status":"ACTIVE",
+"count":18
+},
+{
+"status":"DORMANT",
+"count":7
+}
+]
+
+---
+
+## Priority 7 - Top Skills Used
+
+Business Question
+
+Which capabilities are used most?
+
+Chart Type
+
+Horizontal Bar Chart
+
+API
+
+GET /api/dashboard/top-skills
+
+Mock Data
+
+[
+{
+"skill":"Swagger Parsing",
+"usage":900
+},
+{
+"skill":"Test Generation",
+"usage":850
+},
+{
+"skill":"Splunk Analysis",
+"usage":650
+},
+{
+"skill":"Story Creation",
+"usage":500
+},
+{
+"skill":"Accessibility Testing",
+"usage":400
+}
+]
+
+---
+
+## Priority 8 - Team AI Maturity Score
+
+Business Question
+
+Which teams are leading AI adoption?
+
+Chart Type
+
+Horizontal Bar Chart
+
+API
+
+GET /api/dashboard/team-maturity
+
+Mock Data
+
+[
+{
+"team":"QA COE",
+"score":95
+},
+{
+"team":"Platform Engineering",
+"score":88
+},
+{
+"team":"Payments",
+"score":82
+},
+{
+"team":"DevOps",
+"score":75
+}
+]
+
+---
+
+## Recommended Layout
+
+Row 1
+
+KPI Cards
+
+Total Executions
+
+Active Users
+
+Active Agents
+
+Reuse Rate
+
+---
+
+Row 2
+
+Top Agents by Usage
+
+Adoption by Team
+
+---
+
+Row 3
+
+Usage Trend
+
+Governance Distribution
+
+---
+
+Row 4
+
+Reuse vs New Creation
+
+Agent Status Distribution
+
+---
+
+Row 5
+
+Top Skills
+
+Team AI Maturity

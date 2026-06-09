@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "b96d4dc6-02c1-498b-8a88-401b07b68e61",
+		"name": "XCompanyAgentRegistry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "DashboardOverview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "TopAgents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/dashboard/top-agents"
+					},
+					"response": []
+				},
+				{
+					"name": "DormantAgents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/dashboard/dormant-agents"
+					},
+					"response": []
+				},
+				{
+					"name": "TopAgents Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/dashboard/top-teams"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DuplicateDetection",
+			"item": [
+				{
+					"name": "DuplicateScan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/api/duplicates/scan"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDuplicates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/duplicates"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Governance",
+			"item": [
+				{
+					"name": "GetSummary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/governance/summary"
+					},
+					"response": []
+				},
+				{
+					"name": "GetScores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/governance/scores"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "NewAgents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/notifications/new-agents"
+					},
+					"response": []
+				},
+				{
+					"name": "TopAgents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/notifications/top-agents"
+					},
+					"response": []
+				},
+				{
+					"name": "DormantAgents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/notifications/dormant-agents"
+					},
+					"response": []
+				},
+				{
+					"name": "DuplicateCandidates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/notifications/duplicate-candidates"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ScanStart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/api/scan/start"
+			},
+			"response": []
+		},
+		{
+			"name": "UsageEvents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/api/usage/events"
+			},
+			"response": []
+		},
+		{
+			"name": "UsageSummary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/usage/summary"
+			},
+			"response": []
+		}
+	]
+}
